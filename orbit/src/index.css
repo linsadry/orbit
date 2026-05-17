@@ -1,0 +1,92 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #0d0d0b;
+  --bg2:      #131310;
+  --bg3:      #1a1916;
+  --bg4:      #212019;
+  --bg5:      #2a2825;
+  --border:   rgba(255,255,255,0.055);
+  --border2:  rgba(255,255,255,0.09);
+  --border3:  rgba(255,255,255,0.14);
+  --text:     #e2ddd4;
+  --text2:    #9e9a8e;
+  --text3:    #5a5650;
+  --text4:    #3a3830;
+  --gold:     #b5813a;
+  --gold2:    #c9973e;
+  --gold-dim: rgba(181,129,58,0.10);
+  --sage:     #4a7c59;
+  --teal:     #3a6a7a;
+  --rust:     #c47a5a;
+  --plum:     #7a5a8a;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans:  'Geist', system-ui, sans-serif;
+  --mono:  'Geist Mono', 'Courier New', monospace;
+  --ease:  cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button { cursor: pointer; font-family: var(--sans); }
+input, textarea, select { color: var(--text); font-family: var(--sans); }
+select option { background: var(--bg3); }
+
+/* Scrollbars — very subtle */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.14); }
+
+/* Smooth page transitions */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page-enter { animation: fadeUp 0.22s var(--ease) both; }
+
+/* Constellation breathing */
+@keyframes breathe {
+  0%, 100% { opacity: 0.06; r: 0; }
+  50%       { opacity: 0.16; }
+}
+
+/* Notification slide-up */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Orbit icon pulse on hover */
+@keyframes orbitPulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.06); }
+}
+
+/* Timer pulse when running */
+@keyframes timerPulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.6; }
+}
+.timer-running { animation: timerPulse 2s ease-in-out infinite; }
+
+/* Progress bar fill animation */
+@keyframes fillBar {
+  from { width: 0%; }
+}
+.progress-fill { animation: fillBar 0.6s var(--ease) both; }
+
+/* Selection color */
+::selection {
+  background: rgba(181,129,58,0.25);
+  color: var(--text);
+}
+
